@@ -33,7 +33,6 @@ header h1{
 header p{
     margin-top:15px;
     font-size:18px;
-    opacity:0.9;
 }
 
 nav{
@@ -82,6 +81,36 @@ section{
     transform:translateY(-8px);
 }
 
+/* Points Table Styling */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+table th, table td{
+    padding:15px;
+    text-align:center;
+}
+
+table th{
+    background:#004aad;
+    color:white;
+    font-weight:600;
+}
+
+table tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+table tr:hover{
+    background:#e6f0ff;
+}
+
 footer{
     background:#001f3f;
     color:white;
@@ -117,6 +146,7 @@ footer{
 <nav>
     <a href="#teams">Teams</a>
     <a href="#players">Players</a>
+    <a href="#points">Points Table</a>
     <a href="#venue">Venue</a>
     <a href="#contact">Contact</a>
 </nav>
@@ -124,15 +154,9 @@ footer{
 <section id="teams">
     <div class="section-title">Participating Teams</div>
     <div class="card-container">
-        <div class="card">
-            <h3>Ponchagaon</h3>
-        </div>
-        <div class="card">
-            <h3>Dhantola</h3>
-        </div>
-        <div class="card">
-            <h3>Boitamari</h3>
-        </div>
+        <div class="card"><h3>Ponchagaon</h3></div>
+        <div class="card"><h3>Dhantola</h3></div>
+        <div class="card"><h3>Boitamari</h3></div>
     </div>
 </section>
 
@@ -143,20 +167,54 @@ footer{
             <h3>Barek Hussain</h3>
             <p class="highlight">Captain</p>
         </div>
-        <div class="card">
-            <h3>Jumon</h3>
-        </div>
-        <div class="card">
-            <h3>Kopil</h3>
-        </div>
+        <div class="card"><h3>Jumon</h3></div>
+        <div class="card"><h3>Kopil</h3></div>
     </div>
+</section>
+
+<section id="points">
+    <div class="section-title">Points Table</div>
+    <table>
+        <tr>
+            <th>Position</th>
+            <th>Team</th>
+            <th>Played</th>
+            <th>Won</th>
+            <th>Lost</th>
+            <th>Points</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Ponchagaon</td>
+            <td>2</td>
+            <td>2</td>
+            <td>0</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Dhantola</td>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Boitamari</td>
+            <td>2</td>
+            <td>0</td>
+            <td>2</td>
+            <td>0</td>
+        </tr>
+    </table>
 </section>
 
 <section id="venue">
     <div class="section-title">Venue</div>
     <div class="card">
         <h3>Vatipara Cricket Ground</h3>
-        <p>All matches will be played at this venue.</p>
+        <p>All matches will be played here.</p>
     </div>
 </section>
 
