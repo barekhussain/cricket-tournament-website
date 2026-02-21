@@ -3,115 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Local Premier League</title>
+<title>Local Premier League 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-header {
-    background: #0d6efd;
-    color: white;
-    padding: 20px;
-    text-align: center;
+body{
+    background:#f4f7fb;
+    color:#333;
 }
 
-nav {
-    background: #222;
-    padding: 10px;
-    text-align: center;
+header{
+    background: linear-gradient(135deg, #004aad, #001f3f);
+    color:white;
+    padding:90px 20px;
+    text-align:center;
 }
 
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
+header h1{
+    font-size:50px;
 }
 
-section {
-    padding: 40px 20px;
+header p{
+    margin-top:15px;
+    font-size:18px;
+    opacity:0.9;
 }
 
-.card {
-    background: white;
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+nav{
+    background:#111;
+    padding:15px;
+    text-align:center;
 }
 
-footer {
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 15px;
+nav a{
+    color:white;
+    margin:0 20px;
+    text-decoration:none;
+    font-weight:500;
 }
+
+nav a:hover{
+    color:#00c6ff;
+}
+
+section{
+    padding:60px 10%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:30px;
+    font-weight:600;
+}
+
+.card-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+footer{
+    background:#001f3f;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+.highlight{
+    color:#004aad;
+    font-weight:600;
+}
+
+@media(max-width:768px){
+    header h1{
+        font-size:34px;
+    }
+    section{
+        padding:40px 5%;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>🏏 Annual Cricket League 2026</h1>
-    <p>Organized by Ponchagaon Sports Club</p>
+    <h1>🏏 Local Premier League 2026</h1>
+    <p>Organised by Ponchagaon Sports Club</p>
 </header>
 
 <nav>
     <a href="#teams">Teams</a>
     <a href="#players">Players</a>
-    <a href="#schedule">Schedule</a>
-    <a href="#scores">Live Scores</a>
+    <a href="#venue">Venue</a>
     <a href="#contact">Contact</a>
 </nav>
 
 <section id="teams">
-    <h2>Teams</h2>
-    <div class="card">Team A - Pochagaon</div>
-    <div class="card">Team B - Dhantola</div>
-    <div class="card">Team C - Boitamari</div>
+    <div class="section-title">Participating Teams</div>
+    <div class="card-container">
+        <div class="card">
+            <h3>Ponchagaon</h3>
+        </div>
+        <div class="card">
+            <h3>Dhantola</h3>
+        </div>
+        <div class="card">
+            <h3>Boitamari</h3>
+        </div>
+    </div>
 </section>
 
 <section id="players">
-    <h2>Players</h2>
-    <div class="card">
-        <strong>Captain:</strong> Barek Hussain <br>
-        <strong>Role:</strong> Batsman
-    </div>
-    <div class="card">
-        <strong>Captain:</strong> Jumon <br>
-        <strong>Role:</strong> All-Rounder
-    </div>
-</section>
-
-<section id="schedule">
-    <h2>Match Schedule</h2>
-    <div class="card">
-        25 Feb 2026 - Team A vs Team B
-    </div>
-    <div class="card">
-        27 Feb 2026 - Team B vs Team C
+    <div class="section-title">Key Players</div>
+    <div class="card-container">
+        <div class="card">
+            <h3>Barek Hussain</h3>
+            <p class="highlight">Captain</p>
+        </div>
+        <div class="card">
+            <h3>Jumon</h3>
+        </div>
+        <div class="card">
+            <h3>Kopil</h3>
+        </div>
     </div>
 </section>
 
-<section id="scores">
-    <h2>Live Scores</h2>
+<section id="venue">
+    <div class="section-title">Venue</div>
     <div class="card">
-        Team A: 145/6 (18 overs)
+        <h3>Vatipara Cricket Ground</h3>
+        <p>All matches will be played at this venue.</p>
     </div>
 </section>
 
 <section id="contact">
-    <h2>Contact</h2>
+    <div class="section-title">Contact Information</div>
     <div class="card">
-        Phone: 7002069756 <br>
-        Email: Barekhussain87@gmail.com
+        <p><strong>Email:</strong> Barekhussain87@gmail.com</p>
+        <p><strong>Phone:</strong> 7002069756</p>
     </div>
 </section>
 
 <footer>
-    © 2026 Ponchagaon Cricket League | All Rights Reserved
+    © 2026 Local Premier League | Organised by Ponchagaon Sports Club
 </footer>
 
 </body>
