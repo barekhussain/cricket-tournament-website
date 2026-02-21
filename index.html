@@ -1,87 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Local Premier League 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Poppins', sans-serif;
+body{font-family:Poppins;margin:0;background:#f4f7fb;}
+header{background:#004aad;color:white;padding:60px;text-align:center;}
+nav{background:#111;padding:15px;text-align:center;}
+nav a{color:white;margin:0 20px;text-decoration:none;font-weight:600;}
+section{padding:50px 10%;}
+h2{text-align:center;margin-bottom:25px;}
+
+.card-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
-body{
-    background:#f4f7fb;
-    color:#333;
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
-
-header{
-    background: linear-gradient(135deg, #004aad, #001f3f);
-    color:white;
-    padding:80px 20px;
-    text-align:center;
-}
-
-nav{
-    background:#111;
-    padding:15px;
-    text-align:center;
-}
-
-nav a{
-    color:white;
-    margin:0 20px;
-    text-decoration:none;
-}
-
-section{
-    padding:60px 10%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:28px;
-    font-weight:600;
-}
-
-/* Table */
 
 table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+width:100%;
+border-collapse:collapse;
+background:white;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+margin-top:20px;
 }
 
-table th, table td{
-    padding:15px;
-    text-align:center;
+th,td{
+padding:12px;
+text-align:center;
 }
 
-table th{
-    background:#004aad;
-    color:white;
+th{
+background:#004aad;
+color:white;
 }
 
 input{
-    width:60px;
-    padding:5px;
-    text-align:center;
+width:60px;
+padding:5px;
+text-align:center;
+}
+
+.match{
+background:white;
+padding:20px;
+margin-bottom:15px;
+border-radius:8px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
 footer{
-    background:#001f3f;
-    color:white;
-    text-align:center;
-    padding:25px;
-    margin-top:40px;
+background:#001f3f;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
 }
 </style>
 </head>
@@ -89,79 +70,105 @@ footer{
 <body>
 
 <header>
-    <h1>🏏 Local Premier League 2026</h1>
-    <p>Organised by Ponchagaon Sports Club</p>
+<h1>🏏 Local Premier League 2026</h1>
+<p>Organised by Ponchagaon Sports Club</p>
 </header>
 
 <nav>
-    <a href="#points">Points Table</a>
+<a href="index.html">Home</a>
+<a href="players.html">Players Stats</a>
 </nav>
 
-<section id="points">
-    <div class="section-title">Auto Calculating Points Table</div>
+<section>
 
-    <table>
-        <tr>
-            <th>Team</th>
-            <th>Played</th>
-            <th>Won</th>
-            <th>Lost</th>
-            <th>Points</th>
-        </tr>
+<h2>Participating Teams</h2>
 
-        <tr>
-            <td>Ponchagaon</td>
-            <td><input type="number" class="played" value="2"></td>
-            <td><input type="number" class="won" value="2"></td>
-            <td><input type="number" class="lost" value="0"></td>
-            <td class="points">4</td>
-        </tr>
+<div class="card-container">
+<div class="card"><h3>Ponchagaon</h3></div>
+<div class="card"><h3>Dhantola</h3></div>
+<div class="card"><h3>Boitamari</h3></div>
+</div>
 
-        <tr>
-            <td>Dhantola</td>
-            <td><input type="number" class="played" value="2"></td>
-            <td><input type="number" class="won" value="1"></td>
-            <td><input type="number" class="lost" value="1"></td>
-            <td class="points">2</td>
-        </tr>
+</section>
 
-        <tr>
-            <td>Boitamari</td>
-            <td><input type="number" class="played" value="2"></td>
-            <td><input type="number" class="won" value="0"></td>
-            <td><input type="number" class="lost" value="2"></td>
-            <td class="points">0</td>
-        </tr>
+<section>
 
-    </table>
+<h2>Points Table</h2>
+
+<table>
+<tr>
+<th>Team</th>
+<th>Played</th>
+<th>Won</th>
+<th>Lost</th>
+<th>Points</th>
+</tr>
+
+<tr>
+<td>Ponchagaon</td>
+<td><input type="number" class="played" value="0"></td>
+<td><input type="number" class="won" value="0"></td>
+<td><input type="number" class="lost" value="0"></td>
+<td class="points">0</td>
+</tr>
+
+<tr>
+<td>Dhantola</td>
+<td><input type="number" class="played" value="0"></td>
+<td><input type="number" class="won" value="0"></td>
+<td><input type="number" class="lost" value="0"></td>
+<td class="points">0</td>
+</tr>
+
+<tr>
+<td>Boitamari</td>
+<td><input type="number" class="played" value="0"></td>
+<td><input type="number" class="won" value="0"></td>
+<td><input type="number" class="lost" value="0"></td>
+<td class="points">0</td>
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Match Results</h2>
+
+<div class="match">
+<strong>Match 1:</strong> Ponchagaon vs Dhantola <br>
+Score: 145/6 vs 130/8 <br>
+Winner: Ponchagaon
+</div>
+
+<!-- After every match, COPY this block and update details -->
+
 </section>
 
 <footer>
-    © 2026 Local Premier League | Ponchagaon Sports Club
+© 2026 Local Premier League | Ponchagaon Sports Club
 </footer>
 
 <script>
-
 function calculatePoints() {
-    const rows = document.querySelectorAll("table tr");
+const rows = document.querySelectorAll("table tr");
 
-    rows.forEach((row, index) => {
-        if(index === 0) return;
+rows.forEach((row, index) => {
+if(index === 0) return;
 
-        const won = row.querySelector(".won").value;
-        const pointsCell = row.querySelector(".points");
+const won = row.querySelector(".won").value;
+const pointsCell = row.querySelector(".points");
 
-        const points = won * 2;
-        pointsCell.innerText = points;
-    });
+pointsCell.innerText = won * 2;
+});
 }
 
 document.querySelectorAll("input").forEach(input => {
-    input.addEventListener("input", calculatePoints);
+input.addEventListener("input", calculatePoints);
 });
 
 calculatePoints();
-
 </script>
 
 </body>
