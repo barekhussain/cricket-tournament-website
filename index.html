@@ -3,16 +3,44 @@
 <head>
 <title>Local Premier League 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
 body{font-family:Poppins;margin:0;background:#f4f7fb;}
-header{background:#004aad;color:white;padding:50px;text-align:center;}
-section{padding:40px 10%;}
-table{width:100%;border-collapse:collapse;background:white;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);}
+header{background:#004aad;color:white;padding:60px;text-align:center;}
+nav{background:#111;padding:15px;text-align:center;}
+nav a{color:white;margin:0 20px;text-decoration:none;font-weight:600;}
+section{padding:50px 10%;}
+h2{text-align:center;margin-bottom:25px;}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+margin-bottom:40px;
+}
+
 th,td{padding:12px;text-align:center;}
 th{background:#004aad;color:white;}
+
+footer{
+background:#001f3f;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+margin-bottom:20px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -20,7 +48,14 @@ th{background:#004aad;color:white;}
 <p>Organised by Ponchagaon Sports Club</p>
 </header>
 
-<section>
+<nav>
+<a href="#points">Points</a>
+<a href="#batting">Batting</a>
+<a href="#bowling">Bowling</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="points">
 <h2>Points Table</h2>
 <table id="pointsTable">
 <tr>
@@ -33,29 +68,74 @@ th{background:#004aad;color:white;}
 </table>
 </section>
 
+<section id="batting">
+<h2>Batting Statistics</h2>
+<table id="battingTable">
+<tr>
+<th>Player</th>
+<th>Matches</th>
+<th>Runs</th>
+<th>Balls</th>
+<th>Outs</th>
+<th>Strike Rate</th>
+<th>Average</th>
+</tr>
+</table>
+</section>
+
+<section id="bowling">
+<h2>Bowling Statistics</h2>
+<table id="bowlingTable">
+<tr>
+<th>Player</th>
+<th>Matches</th>
+<th>Wickets</th>
+<th>Runs Given</th>
+<th>Overs</th>
+<th>Economy</th>
+</tr>
+</table>
+</section>
+
+<section id="contact">
+<h2>Contact Us</h2>
+<div class="card">
+<p><strong>Email:</strong> Barekhussain87@gmail.com</p>
+<p><strong>Phone:</strong> 7002069756</p>
+<p><strong>Venue:</strong> Vatipara Cricket Ground</p>
+</div>
+</section>
+
+<footer>
+© 2026 Local Premier League | Ponchagaon Sports Club
+</footer>
+
 <script>
 
-const sheetID = "YOUR_SHEET_ID";
-const pointsURL = `https://docs.google.com/spreadsheets/d/1571yn2WY7OszOwY5I7X8luHKMDf9BSJerciKzeBuWww/gviz/tq?tqx=out:json&sheet=Points`;
+const sheetID = "1571yn2WY7OszOwY5I7X8luHKMDf9BSJerciKzeBuWww";
 
-fetch(pointsURL)
+function fetchSheet(sheetName, callback){
+const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:json&sheet=${sheetName}`;
+fetch(url)
 .then(res => res.text())
 .then(data => {
-
 const json = JSON.parse(data.substring(47).slice(0,-2));
-const rows = json.table.rows;
+callback(json.table.rows);
+});
+}
 
+/* POINTS TABLE */
+fetchSheet("Points", rows=>{
 let table = document.getElementById("pointsTable");
 
-rows.forEach(row => {
-
+rows.forEach(row=>{
 let team = row.c[0]?.v || "";
 let played = row.c[1]?.v || 0;
 let won = row.c[2]?.v || 0;
 let lost = row.c[3]?.v || 0;
 let points = won * 2;
 
-let newRow = `
+table.innerHTML += `
 <tr>
 <td>${team}</td>
 <td>${played}</td>
@@ -63,11 +143,59 @@ let newRow = `
 <td>${lost}</td>
 <td>${points}</td>
 </tr>`;
-
-table.innerHTML += newRow;
-
+});
 });
 
+/* BATTING */
+fetchSheet("Batting", rows=>{
+let table = document.getElementById("battingTable");
+
+rows.forEach(row=>{
+let player = row.c[0]?.v || "";
+let matches = row.c[1]?.v || 0;
+let runs = row.c[2]?.v || 0;
+let balls = row.c[3]?.v || 0;
+let outs = row.c[4]?.v || 0;
+
+let sr = balls>0 ? ((runs/balls)*100).toFixed(2) : 0;
+let avg = outs>0 ? (runs/outs).toFixed(2) : runs;
+
+table.innerHTML += `
+<tr>
+<td>${player}</td>
+<td>${matches}</td>
+<td>${runs}</td>
+<td>${balls}</td>
+<td>${outs}</td>
+<td>${sr}</td>
+<td>${avg}</td>
+</tr>`;
+});
+});
+
+/* BOWLING */
+fetchSheet("Bowling", rows=>{
+let table = document.getElementById("bowlingTable");
+
+rows.forEach(row=>{
+let player = row.c[0]?.v || "";
+let matches = row.c[1]?.v || 0;
+let wickets = row.c[2]?.v || 0;
+let runs = row.c[3]?.v || 0;
+let overs = row.c[4]?.v || 0;
+
+let economy = overs>0 ? (runs/overs).toFixed(2) : 0;
+
+table.innerHTML += `
+<tr>
+<td>${player}</td>
+<td>${matches}</td>
+<td>${wickets}</td>
+<td>${runs}</td>
+<td>${overs}</td>
+<td>${economy}</td>
+</tr>`;
+});
 });
 
 </script>
